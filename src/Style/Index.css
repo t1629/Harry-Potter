@@ -1,0 +1,168 @@
+.hp-container {
+  background: #141310;
+  color: #f5f5f5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.hp-main {
+  flex: 1;
+  text-align: center;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.hp-main img.varita {
+  max-width: 300px;
+  transform: rotate(-30deg);
+  margin-bottom: 1rem;
+  margin-right: 700px;
+  margin-top: 70px;
+}
+
+@keyframes colorPulse {
+  0% {
+    color: #ae9206;
+  }
+  50% {
+    color: #ffffff;
+  }
+  100% {
+    color: #ae9206;
+  }
+}
+
+.tittle-change {
+  animation: colorPulse 2s infinite;
+}
+
+.text-change {
+  animation: colorPulse 2s infinite;
+}
+.card-magica {
+  background: linear-gradient(
+    135deg,
+    rgba(245, 233, 212, 0.1) 0%,
+    rgba(232, 217, 181, 0.05) 100%
+  );
+  border: 1px solid rgba(211, 166, 37, 0.2);
+  border-radius: 15px;
+  color: white;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+}
+
+.card-magica:hover {
+  transform: translateY(-2px);
+}
+
+.form-label {
+  color: #f5d142;
+  text-shadow:
+    0 0 5px #f5d142,
+    0 0 10px #f5d142,
+    0 0 20px #fff;
+  transition: text-shadow 0.3s ease;
+}
+.form-label:hover {
+  text-shadow:
+    0 0 10px #ffd700,
+    0 0 20px #fff,
+    0 0 30px #ffd700;
+}
+.card-header-magica {
+  text-shadow:
+    0 0 5px #f5d142,
+    0 0 10px #ffd700,
+    0 0 20px #fff;
+  border-bottom: 2px solid #d3a625;
+  font-family: "Cinzel", serif;
+}
+.tittle-form {
+  animation: pulse 2s infinite;
+  color: #f5d142;
+}
+.form-control {
+  background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+  color: #ffffff !important;
+}
+
+.form-control::placeholder {
+  color: #ccc;
+}
+
+.form-control:focus {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+}
+.card-body-magica {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+  border-radius: 12px;
+  padding: 1.5rem;
+  color: #f5f5f5;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(245, 209, 66, 0.3);
+}
+
+.card-body-magica h3 {
+  color: #eeede8;
+  font-family: "Cinzel", serif;
+  text-shadow:
+    0 0 5px #d4ae17,
+    0 0 10px #ae9508;
+  margin-bottom: 1rem;
+}
+
+.card-body-magica p {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.card-body-magica strong {
+  color: #ffd700;
+}
+
+@keyframes hrPulse {
+  0% {
+    background: #f5d142;
+  }
+  25% {
+    background: #03a31b;
+  }
+  50% {
+    background: #012e76;
+  }
+  75% {
+    background: #c30c0c;
+  }
+  100% {
+    background: #f5d142;
+  }
+}
+hr {
+  border: none;
+  height: 4px;
+  animation: hrPulse 4s infinite;
+}
+.emoji-edit {
+  text-shadow: none !important;
+}
+
+.card-edit .form-label {
+  color: #f5d142;
+  text-shadow:
+    0 0 2px rgba(234, 188, 6, 0.875),
+    0 0 4px rgba(239, 193, 8, 0.885);
+}
+
+.card-edit .emoji-edit {
+  text-shadow: none !important;
+  color: inherit;
+}

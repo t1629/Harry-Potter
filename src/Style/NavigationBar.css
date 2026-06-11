@@ -1,0 +1,71 @@
+.hp-navbar {
+  background-color: #1a1a2e;
+  box-shadow: 0 0 10px goldenrod;
+}
+
+.hogwarts-brand {
+  font-weight: bold;
+  color: goldenrod !important;
+  text-shadow:
+    0 0 10px #fff,
+    0 0 20px goldenrod;
+}
+
+.hogwarts-logo {
+  height: 90px;
+  width: auto;
+  margin-right: 10px;
+  object-fit: contain;
+}
+
+.navbar-nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.nav-item {
+  flex: 1;
+  max-width: 200px;
+}
+
+.nav-link {
+  display: block;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+}
+
+.nav-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.gryffindor {
+  background: var(--gryffindor-red);
+  color: var(--gryffindor-gold);
+  border: 1px solid var(--gryffindor-gold);
+}
+
+.slytherin {
+  background: var(--slytherin-green);
+  color: var(--slytherin-silver);
+  border: 1px solid var(--slytherin-silver);
+}
+
+.ravenclaw {
+  background: var(--ravenclaw-blue);
+  color: var(--ravenclaw-bronze);
+  border: 1px solid var(--ravenclaw-bronze);
+}
+
+.hufflepuff {
+  background: var(--hufflepuff-yellow);
+  color: var(--hufflepuff-black);
+  border: 1px solid var(--hufflepuff-black);
+}
