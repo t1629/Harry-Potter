@@ -1,3 +1,4 @@
+import "../components/layout/Header.css";
 const Header = () => {
   return (
     <header className="hp-header">

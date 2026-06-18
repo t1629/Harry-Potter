@@ -1,6 +1,6 @@
 import { useLocation, Link } from "react-router-dom";
 
-const Detalle = () => {
+const Read = () => {
   const infoHP = useLocation();
   const { info } = infoHP.state || {};
 
@@ -71,4 +71,4 @@ const Detalle = () => {
   );
 };
 
-export default Detalle;
+export default Read;

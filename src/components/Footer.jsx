@@ -1,3 +1,4 @@
+import "../components/layout/Footer.css";
 const Footer = () => {
   return (
     <footer className="hp-footer">

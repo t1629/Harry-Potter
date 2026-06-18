@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import magoImg from "../assets/pngegg.png";
 
-const Eliminar = ({ setPersonaje, personaje }) => {
+const Remove = ({ setPersonaje, personaje }) => {
   const location = useLocation();
   const backPage = useNavigate();
   const personajeHP = location.state?.personaje;
@@ -70,4 +70,4 @@ const Eliminar = ({ setPersonaje, personaje }) => {
   );
 };
 
-export default Eliminar;
+export default Remove;

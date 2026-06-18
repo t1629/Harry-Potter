@@ -26,7 +26,7 @@ const personajeReducer = (state, action) => {
   }
 };
 
-const CrearPersonaje = ({ personajes, setPersonajes, loading, error }) => {
+const Create = ({ personajes, setPersonajes, loading, error }) => {
   const [state, dispatch] = useReducer(personajeReducer, initialState);
 
   const backPage = useNavigate();
@@ -209,4 +209,4 @@ const CrearPersonaje = ({ personajes, setPersonajes, loading, error }) => {
   );
 };
 
-export default CrearPersonaje;
+export default Create;

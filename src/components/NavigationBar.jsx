@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/pngwing.com.png";
+import "../components/layout/NavigationBar.css";
 
 const NavigationBar = () => {
   return (

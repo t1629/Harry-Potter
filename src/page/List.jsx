@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Listado = ({ personajes, loading, error }) => {
+const List = ({ personajes, loading, error }) => {
   const personajesLimit = [
     ...personajes.slice(0, 22),
     ...personajes.filter((p) => p.id > 22),
@@ -88,4 +88,4 @@ const Listado = ({ personajes, loading, error }) => {
   );
 };
 
-export default Listado;
+export default List;

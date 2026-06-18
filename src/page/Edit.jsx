@@ -1,7 +1,7 @@
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-const EditarPersonaje = ({ personajes, setPersonaje }) => {
+const Edit = ({ personajes, setPersonaje }) => {
   const location = useLocation();
   const backPage = useNavigate();
   const p = location.state?.personaje;
@@ -197,4 +197,4 @@ const EditarPersonaje = ({ personajes, setPersonaje }) => {
   );
 };
 
-export default EditarPersonaje;
+export default Edit;

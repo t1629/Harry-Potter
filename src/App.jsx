@@ -1,15 +1,15 @@
 import { Routes, Route } from "react-router-dom";
-import Detalle from "./components/Detalle";
-import Listado from "./components/Listado";
-import CrearPersonaje from "./components/CrearPersonaje";
-import EditarPersonaje from "./components/EditarPersonaje";
-import Eliminar from "./components/Eliminar";
-import Index from "./components/Index";
+import Read from "./page/Read";
+import List from "./page/List";
+import Create from "./page/Create";
+import Edit from "./page/Edit";
+import Remove from "./page/Remove";
+import Home from "./page/Home";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import NavigationBar from "./components/NavigationBar";
 
-import "./App.css";
+import "./components/layout/App.css";
 import { useState, useEffect } from "react";
 
 function App() {
@@ -44,18 +44,18 @@ function App() {
       <NavigationBar />
       <div className="container my-4">
         <Routes>
-          <Route path="/" element={<Index />} />
+          <Route path="/" element={<Home />} />
           <Route
             path="/Listado"
             element={
-              <Listado personajes={personaje} loading={loading} error={error} />
+              <List personajes={personaje} loading={loading} error={error} />
             }
           />
-          <Route path="/Detalle/:id" element={<Detalle />} />
+          <Route path="/Detalle/:id" element={<Read />} />
           <Route
             path="/EditarPersonaje/:id"
             element={
-              <EditarPersonaje
+              <Edit
                 personajes={personaje}
                 setPersonaje={setPersonaje}
                 loading={loading}
@@ -66,7 +66,7 @@ function App() {
           <Route
             path="/CrearPersonaje"
             element={
-              <CrearPersonaje
+              <Create
                 personajes={personaje}
                 setPersonaje={setPersonaje}
                 loading={loading}
@@ -77,7 +77,7 @@ function App() {
           <Route
             path="/Eliminar/:id"
             element={
-              <Eliminar personaje={personaje} setPersonaje={setPersonaje} />
+              <Remove personaje={personaje} setPersonaje={setPersonaje} />
             }
           />
         </Routes>
