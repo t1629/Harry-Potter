@@ -8,35 +8,13 @@ import Home from "./page/Home";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import NavigationBar from "./components/NavigationBar";
+import NotFound from "./page/NotFound";
+import { useState } from "react";
 
 import "./components/layout/App.css";
-import { useState, useEffect } from "react";
 
 function App() {
-  const [personaje, setPersonaje] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  const fetchPersonajes = async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      const response = await fetch(
-        "https://hp-api.onrender.com/api/characters",
-      );
-      if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
-      const HpData = await response.json();
-      setPersonaje(HpData);
-    } catch (error) {
-      setError(error.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchPersonajes();
-  }, []);
+  const [personajes, setPersonajes] = useState([]);
 
   return (
     <div className="hp-container">
@@ -48,41 +26,34 @@ function App() {
           <Route
             path="/Listado"
             element={
-              <List personajes={personaje} loading={loading} error={error} />
+              <List personajes={personajes} setPersonajes={setPersonajes} />
             }
           />
-          <Route path="/Detalle/:id" element={<Read />} />
+          <Route
+            path="/Detalle/:id"
+            element={<Read personajes={personajes} />}
+          />
           <Route
             path="/EditarPersonaje/:id"
             element={
-              <Edit
-                personajes={personaje}
-                setPersonaje={setPersonaje}
-                loading={loading}
-                error={error}
-              />
+              <Edit personajes={personajes} setPersonajes={setPersonajes} />
             }
           />
           <Route
             path="/CrearPersonaje"
             element={
-              <Create
-                personajes={personaje}
-                setPersonaje={setPersonaje}
-                loading={loading}
-                error={error}
-              />
+              <Create personajes={personajes} setPersonajes={setPersonajes} />
             }
           />
           <Route
             path="/Eliminar/:id"
             element={
-              <Remove personaje={personaje} setPersonaje={setPersonaje} />
+              <Remove personajes={personajes} setPersonajes={setPersonajes} />
             }
           />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
-
       <Footer />
     </div>
   );

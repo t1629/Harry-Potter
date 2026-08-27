@@ -1,0 +1,8 @@
+Mejorar la lógica y estructura del código con una buena arquitectira y agregando o separando del proyecto la lógica,diseño,componentes,etc para que se pueda mantener y escalar
+
+
+
+
+mejroar el pop de no se encontro ningunu presonaje a que sea dark
+
+

@@ -25,6 +25,18 @@
   width: 100%;
 }
 
+@media (max-width: 768px) {
+  .navbar-nav.ms-auto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav-link {
+    width: 200px;
+    text-align: center;
+  }
+}
 .nav-item {
   flex: 1;
   max-width: 200px;
@@ -68,4 +80,21 @@
   background: var(--hufflepuff-yellow);
   color: var(--hufflepuff-black);
   border: 1px solid var(--hufflepuff-black);
+}
+
+.navbar-toggler {
+  border: 2px solid goldenrod;
+  background-color: #1a1a2e;
+  border-radius: 8px;
+  padding: 6px;
+  transition: transform 0.3s ease;
+}
+
+.navbar-toggler:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px goldenrod;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='goldenrod' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }

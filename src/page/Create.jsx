@@ -34,7 +34,7 @@ const Create = ({ personajes, setPersonajes, loading, error }) => {
     e.preventDefault();
 
     const nuevo = {
-      id: personajes.length + 1,
+      id: Date.now(),
       image: state.Imagen,
       name: state.Nombre,
       species: state.Especie,

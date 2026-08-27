@@ -1,68 +1,57 @@
-import { useLocation, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { GetCharacter } from "../service/Service";
+import Error from "../page/ErrorMessage";
+import "../components/layout/Read.css";
+import "../components/iu/buttom.css";
 
-const Read = () => {
-  const infoHP = useLocation();
-  const { info } = infoHP.state || {};
+const Read = ({ personajes }) => {
+  const { id } = useParams();
+  const [info, setInfo] = useState(null);
+  const [error, setError] = useState(false);
 
-  if (!info) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        <h4 className="alert-heading">
-          No se encuentra el personaje seleccionado
-        </h4>
-        <p>
-          Ha ocurrido un error y lamentablemente el personaje que seleccionó no
-          se pudo encontrar.
-        </p>
-        <hr />
-        <p className="mb-0">
-          Por favor vuelva a la lista de personajes y seleccione otro.
-        </p>
-      </div>
-    );
+  useEffect(() => {
+    async function loadCharacter() {
+      try {
+        const data = await GetCharacter(id, personajes);
+        setInfo(data);
+      } catch {
+        setError(true);
+      }
+    }
+    loadCharacter();
+  }, [id, personajes]);
+
+  if (error) {
+    return <Error />;
   }
-
+  if (!info) {
+    return <p className="text-center mt-4">Cargando personaje...</p>;
+  }
   return (
     <div className="d-flex justify-content-center mt-4">
-      <div
-        className="card shadow-lg"
-        style={{
-          width: "22rem",
-          background:
-            "linear-gradient(135deg, rgba(245, 233, 212, 0.1) 0%, rgba(232, 217, 181, 0.05) 100%)",
-          border: "1px solid rgba(211, 166, 37, 0.2)",
-          borderRadius: "15px",
-          color: "white",
-        }}
-      >
+      <div className="card-detail shadow-lg">
         <img
-          src={info.Imagen}
+          src={info.image}
           className="card-img-top"
           style={{ height: "300px", objectFit: "contain" }}
         />
         <div className="card-body text-center">
-          <h3 className="card-title fw-bold text-center">⚡{info.Nombre}⚡</h3>
+          <h3 className="card-title fw-bold text-center">⚡{info.name}⚡</h3>
           <hr />
           <p className="card-text">
-            <span className="fw-bold">🦉Especie:</span> {info.Especie}
+            <span className="fw-bold">🦉Especie:</span> {info.species}
           </p>
           <p className="card-text">
-            <span className="fw-bold">🧹Género:</span> {info.Genero}
+            <span className="fw-bold">🧹Género:</span> {info.gender}
           </p>
           <p className="card-text">
-            <span className="fw-bold">🪶Casa de Hogwarts:</span> {info.Casa}
+            <span className="fw-bold">🪶Casa de Hogwarts:</span> {info.house}
           </p>
         </div>
         <div className="card-footer text-center">
-          <Link
-            to="/Listado"
-            className="btn"
-            style={{
-              color: "#946b2d",
-              border: "1px solid #946b2d",
-              background: "#0e1a40",
-            }}
-          >
+          <Link to="/Listado" className="btn btn-listado-read">
             Volver al listado
           </Link>
         </div>

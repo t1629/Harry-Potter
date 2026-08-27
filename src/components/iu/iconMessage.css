@@ -1,0 +1,9 @@
+.ascii-art {
+  font-size: 10px;
+  line-height: 8px;
+  text-align: center;
+  overflow: hidden;
+  white-space: pre;
+  margin: 0;
+  max-height: none;
+}

@@ -1,0 +1,71 @@
+.nf-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  text-align: center;
+  padding: 20px;
+}
+
+.nf-title {
+  font-family: "Cinzel Decorative", serif;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #ab9706;
+}
+
+.nf-image {
+  max-width: 100%;
+  height: 400px;
+  margin: 20px 0;
+}
+
+.nf-text {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #d4af37;
+  font-weight: 500;
+  font-family: "Cinzel Decorative", serif;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.btn-nf {
+  background-color: #05187b;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn-nf:hover {
+  background-color: #141310;
+  color: #0e2bbc;
+  border-color: #0e2bbc;
+  box-shadow: 0 0 10px #0e2bbc;
+}
+
+.btn-nf:focus,
+.btn-nf:active {
+  outline: none;
+  border: none;
+  color: #fff;
+  background-color: #05187b;
+}
+
+@media (max-width: 768px) {
+  .nf-title {
+    font-size: 1.4rem;
+  }
+
+  .nf-text {
+    font-size: 1rem;
+  }
+
+  .btn-nf {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}

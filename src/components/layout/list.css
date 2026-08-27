@@ -1,0 +1,15 @@
+.card {
+  background: linear-gradient(
+    135deg,
+    rgba(245, 233, 212, 0.1) 0%,
+    rgba(232, 217, 181, 0.05) 100%
+  );
+  border: 1px solid rgba(211, 166, 37, 0.2);
+  border-radius: 15px;
+  color: white;
+}
+.list-container {
+  position: relative;
+  min-height: 80vh;
+  overflow: hidden;
+}

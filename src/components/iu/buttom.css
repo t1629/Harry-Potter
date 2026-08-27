@@ -1,0 +1,13 @@
+.btn-listado-read {
+  margin-top: 7px;
+  margin-bottom: 5px;
+  color: #946b2d;
+  border: 1px solid #946b2d;
+  background: #0e1a40;
+}
+
+.btn-listado-read:hover {
+  color: #946b2d;
+  border: 1px solid #946b2d;
+  background: #0e1a40;
+}

@@ -25,6 +25,23 @@
   margin-right: 700px;
   margin-top: 70px;
 }
+@media (max-width: 768px) {
+  .hp-main img.varita {
+    max-width: 150px;
+    max-height: 200px;
+    margin-right: 0;
+    margin-top: 20px;
+    transform: rotate(-15deg);
+    margin-right: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hp-main img.varita {
+    max-width: 100px;
+    margin-top: 10px;
+  }
+}
 
 @keyframes colorPulse {
   0% {
