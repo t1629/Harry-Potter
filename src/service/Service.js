@@ -1,22 +1,38 @@
 import fetchHp from "../service/Api";
+import personajes from "../data/Characters.json";
 
 export async function GetAll() {
-  const data = await fetchHp("https://hp-api.onrender.com/api/characters");
-  return data.map((p, index) => ({ ...p, id: index }));
+  await new Promise((resolve) => setTimeout(resolve, 500));
+
+  return personajes.map((p, index) => ({
+    ...p,
+    id: index,
+  }));
 }
 
 export async function GetCharacter(id, personajes) {
+  await new Promise((resolve) => setTimeout(resolve, 300));
+
   return personajes.find((p) => p.id === parseInt(id));
 }
-
-export async function EditCharacter(id, personajes) {
-  return personajes.find((p) => p.id === parseInt(id));
-}
-
 export async function CreateCharacter(data, personajes) {
-  const newCharacter = { ...data, id: Date.now() };
+  await new Promise((resolve) => setTimeout(resolve, 300));
+
+  const newCharacter = {
+    ...data,
+    id: Date.now(),
+  };
+
   return [...personajes, newCharacter];
 }
+export async function EditCharacter(id, data, personajes) {
+  await new Promise((resolve) => setTimeout(resolve, 300));
+
+  return personajes.map((p) => (p.id === parseInt(id) ? { ...p, ...data } : p));
+}
+
 export async function RemoveCharacter(id, personajes) {
-  return personajes.find((p) => p.id !== parseInt(id));
+  await new Promise((resolve) => setTimeout(resolve, 300));
+
+  return personajes.filter((p) => p.id !== parseInt(id));
 }

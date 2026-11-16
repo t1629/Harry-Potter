@@ -1,14 +1,16 @@
 import { useNavigate } from "react-router-dom";
-import { EditCharacter } from "../service/Service";
+import { EditCharacter, GetCharacter } from "../service/Service";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Error from "../page/ErrorMessage";
+import Loading from "../components/Loading";
 
 const Edit = ({ personajes, setPersonajes }) => {
   const backPage = useNavigate();
   const { id } = useParams();
   const [originalName, setOriginalName] = useState("");
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [infoP, setInfoP] = useState({
     image: "",
     name: "",
@@ -20,25 +22,31 @@ const Edit = ({ personajes, setPersonajes }) => {
   useEffect(() => {
     async function loadCharacter() {
       try {
-        const responsive = await EditCharacter(id, personajes);
+        const responsive = await GetCharacter(id, personajes);
         if (!responsive) {
           setError(true);
           return;
         }
-        setInfoP(responsive);
+        setInfoP({
+          image: responsive.image,
+          name: responsive.name,
+          species: responsive.species,
+          gender: responsive.gender,
+          house: responsive.house,
+        });
         setOriginalName(responsive.name);
       } catch {
         setError(true);
+      } finally {
+        setLoading(false);
       }
     }
     loadCharacter();
   }, [id, personajes]);
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const nuevos = personajes.map((p) =>
-      p.id === parseInt(id) ? { ...p, ...infoP } : p,
-    );
+    const nuevos = await EditCharacter(id, infoP, personajes);
 
     setPersonajes(nuevos);
     backPage("/Listado");
@@ -50,6 +58,9 @@ const Edit = ({ personajes, setPersonajes }) => {
 
   if (error) {
     return <Error />;
+  }
+  if (loading) {
+    return <Loading />;
   }
   return (
     <div className="container my-4">

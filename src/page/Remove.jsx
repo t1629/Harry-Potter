@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { RemoveCharacter } from "../service/Service";
+import { RemoveCharacter, GetCharacter } from "../service/Service";
 import { useEffect } from "react";
 import magoImg from "../assets/pngegg.png";
 import { useState } from "react";
@@ -16,8 +16,12 @@ const Remove = ({ setPersonajes, personajes }) => {
   useEffect(() => {
     async function loadCharacter() {
       try {
-        const response = await RemoveCharacter(id, personajes);
+        const response = await GetCharacter(id, personajes);
         console.log(response);
+        if (!response) {
+          setError(true);
+          return;
+        }
         setPersonajeHP(response);
       } catch {
         setError(true);
@@ -25,8 +29,8 @@ const Remove = ({ setPersonajes, personajes }) => {
     }
     loadCharacter();
   }, [id, personajes]);
-  const confirmar = () => {
-    const nuevos = personajes.filter((p) => p.id !== parseInt(id));
+  const confirmar = async () => {
+    const nuevos = await RemoveCharacter(id, personajes);
     setPersonajes(nuevos);
     backPage("/Listado");
   };
